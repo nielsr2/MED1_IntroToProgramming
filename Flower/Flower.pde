@@ -4,7 +4,7 @@ float ballY;
 
 void setup() {
   size(600,400);
-  background(#43AF76);
+  background(#DD0202);
 }
 
 void draw(){
