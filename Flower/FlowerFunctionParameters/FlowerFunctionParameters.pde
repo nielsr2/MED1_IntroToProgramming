@@ -28,4 +28,4 @@ void flower (float x, float y ) {
   }
   fill(200,0,0);
   ellipse(x+width/2,y+height/2,r*1.2,r*1.2);
-}
+} 
