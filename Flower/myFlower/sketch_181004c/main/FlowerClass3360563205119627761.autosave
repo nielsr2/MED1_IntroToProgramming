@@ -5,9 +5,6 @@ class Flower {
   color petalColor;
   color midColor;
   int petals;
-  void displayData() {
-    text("sin: " + sin + "\ncos: " + cos + "\nvel: " + vel, width/4, height/4*3 );
-  }
   Flower() {
   }
   void init(  int tempRadius, float tempX, float tempY, color tempPetalColor, color tempMidColor, int tempPetals) {
@@ -32,37 +29,33 @@ class Flower {
     ellipse(x, y, radius, radius);
     drawSling();
   }
-  float sin, cos, vel, velX, velY;
+  void bounce() {
+  }
+  float sin, cos, vel;
   void move(float tempSin, float tempCos, float tempVel) {
-    vel = constrain(tempVel, 0., 10.);
+    vel = tempVel;
     sin = tempSin;
     cos = tempCos;
-    velX = tempVel;
-    velY = tempVel;
-    //println("sin" + sin + "\n" + "cos" + cos  + "\n" + "vel" + vel);
+
+    println("sin" + sin + "cos" + cos);
     this.boundary();
   }
-  float mX, mY;
+
   void move() {
-    //mX= sin(sin) * velX;
-    //mY  = cos(cos) * velY;
-    mX= sin * velX;
-    mY  = cos * velY;
-    x += mX;
-    y += mY;
+    sin = sin(sin) * vel;
+    cos = cos(cos) * vel;
+    x += sin;
+    y += cos;
     this.boundary();
-    //velX = constrain(velX - 0.01, 0, 10);
-    //velY = constrain(velY - 0.01, 0, 10);
-    // println("vel: " + vel);
-    println("sin" + sin + "\n" + "cos" + cos  + "\n" + "vel" + vel);
+    vel = constrain(vel - 0.1, 0, 3);
   }
   void boundary() {
     if (x >= width || x < 0) {
-      velX = velX * -1.;
+      sin = sin * -1;
       // println("X out!");
     }
     if (y >= height || y < 0) {
-      velY = velY * -1.;
+      cos = cos * -1;
       // println("y out!");
     }
   }
@@ -87,7 +80,7 @@ class Flower {
         //println("released", hypo, adj, deg, cos(deg));
         // float petalX = x + radius*cos(i);
         // float petalY = y + radius*sin(i);
-        this.move(sine, deg, 2);
+        this.move(sine, deg, hypo);
       }
     } else
       if (mousePressed == true && dist(this.x, this.y, mouseX, mouseY) > this.radius) {

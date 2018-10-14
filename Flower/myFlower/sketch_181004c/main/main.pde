@@ -2,7 +2,7 @@
 
 
 // Flower myFlower;
-Flower[] flowers = new Flower[2];// = new Flower();
+Flower[] flowers = new Flower[1];// = new Flower();
 // ArrayList flowers = new ArrayList();
 void drawFlower(int radius, float ballX, float ballY, color petalColor, color midColor, int petals, float middleMultiplier) {
         fill(petalColor);
@@ -38,9 +38,9 @@ void draw() {
         for (int i = 0; i < flowers.length; i = i +1 ) {
                 // println("whoo", i, flowers.length);
                 flowers[i].display();
-
+        flowers[i].move();
         }
-        //myFlower.move();
+        
 }
 
 void mouseClicked() {
