@@ -39,10 +39,10 @@ void draw() {
         for (int i = 0; i < flowers.size(); i = i +1 ) {
                 // println("whoo", i, flowers.length);
                 Flower flower = flowers.get(i);
-                flower.display();
-                flower.displayData();
-                flower.move();
-                // flower.collision();
+                test.display();
+                test.displayData();
+                test.move();
+                test.collision();
         }
 
 }

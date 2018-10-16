@@ -62,7 +62,7 @@ void move() {
         vel = constrain(vel - gravity, 0., pull); // consta
 }
 void boundary() {
-  // if boundary, reverse direction
+        // if boundary, reverse direction
         if (x >= width || x <= 0.) {
                 velX = velX * -1.;
                 this.randomPetals();
@@ -101,4 +101,14 @@ void drawSling() {
 
         }
 }
+void displayData() {
+  fill(0);
+  text("sin: " + sin + "\ncos: " + cos + "\nvel: " + vel, x, y);
+}
+void randomPetals() {
+        petals = int(random(5,17));
+        colorMode(HSB, 100);
+        petalColor = color(random(0,100),random(0,100),random(70,100));
+        colorMode(RGB, 100);
+};
 }
