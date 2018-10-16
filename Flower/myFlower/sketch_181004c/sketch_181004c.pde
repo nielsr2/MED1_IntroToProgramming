@@ -2,11 +2,7 @@ ArrayList<Flower> flowers = new ArrayList<Flower>();
 void setup() {
         size(600, 400);
         background(#FFFFFF);
-        flowers.add(new Flower(40, width/2, height/2, #FF8888, #DDAAAA, 8));
-        flowers.add(new Flower(40, width/4*1, height/4*1, #FF8888, #DDBB02, 18));
-        flowers.add(new Flower(60, width/4*3, height/4*3, #FF0088, #DDBB02, 18));
-        flowers.add(new Flower(60, width/4*1, height/4*3, #FF0088, #A5BB02, 3));
-        flowers.add(new Flower(60, width/4*1, height/4*3, #FF0088, #A5BB02, 3));
+        flowers.add(new Flower(40, width/2, height/2, #FF8888, #DDAAAA, 7));
         flowers.add(new Flower(60, width/4*3, height/4*1, #F10081, #A5B802, 3));
         flowers.add(new Flower());
 }
