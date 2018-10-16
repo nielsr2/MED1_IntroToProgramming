@@ -7,17 +7,27 @@ color midColor;
 int petals;
 float gravity = 0.01;
 float pull = 3.;
+
 Flower() {
         radius = int(random(20,50));
         x = random(0,width);
         y = random(0,height);
         colorMode(HSB, 360, 255, 255);
-        petalColor = color(random(0,360),random(0,255),random(0,255));
-        midColor =  color(random(30,70),random(0,255),random(0,255));
+        petalColor = color(random(0,360),random(0,255),random(200,255));
+        midColor =  color(random(30,70),random(0,255),random(180,255));
         petals = int(random(4,20));
         colorMode(RGB, 100);
 }
-
+Flower( int mX, int mY) {
+        radius = int(random(20,50));
+        x = mX;
+        y = mY;
+        colorMode(HSB, 360, 255, 255);
+        petalColor = color(random(0,360),random(0,255),random(200,255));
+        midColor =  color(random(30,70),random(0,255),random(180,255));
+        petals = int(random(4,20));
+        colorMode(RGB, 100);
+}
 Flower(  int tempRadius, float tempX, float tempY, color tempPetalColor, color tempMidColor, int tempPetals) {
         radius = tempRadius;
         x = tempX;
@@ -63,11 +73,11 @@ void move() {
 }
 void boundary() {
         // if boundary, reverse direction
-        if (x >= width || x <= 0.) {
+        if (x >= width || x <= 0) {
                 velX = velX * -1.;
                 this.randomPetals();
         }
-        if (y >= height || y <= 0.) {
+        if (y >= height || y <= 0) {
                 velY = velY * -1.;
                 this.randomPetals();
         }
