@@ -10,8 +10,8 @@ void collision(){
         for (int i = 0; i < flowers.length - 1; i = i +1 ) {
                 // println(flowers.length, (dist(this.x, this.y, flowers[i].x, flowers[i].y)));
                 if ((dist(this.x, this.y, flowers[i].x, flowers[i].y) > 0 && this.radius > (dist(this.x, this.y, flowers[i].x, flowers[i].y) )))
-                         println("whoo", i, (dist(this.x, this.y, flowers[i].x, flowers[i].y)));
-                        //flowers[i].move(this.sin * -1, this.cos * -1, vel / 2);
+                        println("whoo", i, (dist(this.x, this.y, flowers[i].x, flowers[i].y)));
+                        flowers[i].move(this.sin * -1, this.cos * -1, vel / 2);
                         //break;
                 // flowers[i].velX = velX * -1.;
                 // flowers[i].velY = velY * -1.;
@@ -33,11 +33,9 @@ Flower() {
         radius = int(random(20,50));
         x = random(0,width);
         y = random(0,height);
-        colorMode(HSB, 360, 255, 255);
-        petalColor = color(random(0,360),random(0,255),random(0,255));
-        midColor =  color(random(30,70),random(0,255),random(0,255));
+        petalColor = color(random(0,255),random(0,255),random(0,255));
+        midColor = color(0);
         petals = int(random(4,20));
-          colorMode(RGB, 100);
 }
 
 void init(  int tempRadius, float tempX, float tempY, color tempPetalColor, color tempMidColor, int tempPetals) {
@@ -52,22 +50,19 @@ void init(  int tempRadius, float tempX, float tempY, color tempPetalColor, colo
 float petalRotation;
 void display() {
         fill(petalColor);
-        for (float i=0; i<PI*2; i+=2*PI/petals ) {
+        for (float i=0; i<PI*2; i+=2*PI/petals + petalRotation) {
                 // float petalX = x + 20 + radius*cos(i);
                 if (vel > 0. ) {
-                  // petalRotation += 0.1;
-                  petalRotation += .1;
-                  //petalRotation = ;
-
-                  println(petalRotation);
+                  petalRotation += 0.1;
+                  if ()
                   //petalRotation = constrain(petalRotation, 0, 6.28);
                   //rotate(petalRotation);
                 }
-                float petalX = x + radius*(cos(i));
-                float petalY = y + radius*(sin(i));
+                float petalX = x + radius*cos(i);
+                float petalY = y + radius*sin(i);
                 //ballX=width/2 + r*cos(i);
                 //ballY=height/2 + r*sin(i);
-
+                
                 ellipse(petalX, petalY, radius, radius);
         }
         fill(midColor);
