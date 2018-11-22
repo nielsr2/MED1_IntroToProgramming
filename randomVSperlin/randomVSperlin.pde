@@ -6,15 +6,14 @@ void setup() {
 }
 
 float y_perlin;
-float ran;
+float x_random;
 void draw() {
   background(255);
   y_perlin = y_perlin + 0.1;
   //y_perlin = y_perlin + 0.0;
-  ran = random(0,50) * 1;
-  // println("perlin: ", noise(y_perlin), "random: ", ran);
-  
+  x_random = random(0,50) * 1;
+  // println("perlin: ", noise(y_perlin), "random: ", x_random);
   fill(0);
-  rect(width/2 , height/2, noise(y_perlin) * 100, ran);
+  rect(width/2 , height/2, noise(y_perlin) * 100, x_random);
   
 }
