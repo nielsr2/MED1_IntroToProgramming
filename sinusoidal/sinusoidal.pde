@@ -21,7 +21,7 @@ void setup() {
 }
 float x, x2, y, theta, map2;
 float t_inc = 0.01;
-float inc2 = TWO_PI * 0.01;
+float inc2 = TWO_PI * 0.001;
 
 void draw() {
   background(0);
